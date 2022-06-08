@@ -18,15 +18,14 @@ const ContactsApp = () => {
     }
 
     // save data in localStorage
-    // useEffect(() => {
-    //     localStorage.setItem('contacts', JSON.stringify(contacts))
-    // }, [contacts])
+    useEffect(() => {
+        const contacts = JSON.parse(localStorage.getItem('contacts'));
+        if (contacts) setContacts(contacts)
+    }, [])
 
-    // useEffect(() => {
-    //     const contacts = JSON.parse(localStorage.getItem('contacts'));
-
-    //     if (contacts) setContacts(contacts)
-    // }, [])
+    useEffect(() => {
+        localStorage.setItem('contacts', JSON.stringify(contacts))
+    }, [contacts])
 
     return (
         <div className='contacts__app'>
