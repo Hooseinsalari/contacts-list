@@ -3,6 +3,10 @@ import React from "react";
 // style
 import styles from "./ContactsList.module.css";
 
+// icons
+import trash from "../svg/trash-can-solid.svg";
+import edit from "../svg/pen-to-square-solid.svg";
+
 const ContactsList = ({ contacts, deleteHandler }) => {
   return (
     <div className={styles.contList}>
@@ -22,8 +26,12 @@ const ContactsList = ({ contacts, deleteHandler }) => {
           </div>
 
           <div className={styles['contList__btns']}>
-              <button onClick={() => deleteHandler(contact.id)}>حذف</button>
-              <button onClick={() => deleteHandler(contact.id)}>حذف</button>
+              <button className={styles['contList__trash-btn']} onClick={() => deleteHandler(contact.id)}>
+                <img src={trash} alt="trash" />
+              </button>
+              <button className={styles['contList__edit-btn']} onClick={() => deleteHandler(contact.id)}>
+                <img src={edit} alt="edit" />
+              </button>
           </div>
         </div>
       ))}
