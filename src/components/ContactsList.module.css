@@ -64,6 +64,14 @@
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+.contList__alert h2{
+    color: #002029;
+}
+
+.contList__alert a {
+    text-decoration: none;
+}
+
 /* responsive */
 @media (max-width:674px) {
     .contList__item {
