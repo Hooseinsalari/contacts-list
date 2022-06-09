@@ -130,9 +130,16 @@
         padding: 2rem .5rem;
     }
 
+    .form__title {
+      font-size: 1.2rem;
+    }
+
+    .form__input {
+      width: 21rem;
+  }
 }
 
-@media (max-width: 505px) {
+/* @media (max-width: 505px) {
 
     .form__title {
         font-size: 1.2rem;
@@ -145,14 +152,14 @@
     .form__input {
         width: 18rem;
     }
-}
+} */
 
-@media (max-width: 343px) {
+@media (max-width: 436px) {
     .form {
-        width: 18rem;
+        width: 90%;
     }
     
     .form__input {
-        width: 16rem;
+        width: 90%;
     }
 }

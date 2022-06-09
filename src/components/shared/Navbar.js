@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // style
 import styles from "./Navbar.module.css";
@@ -8,14 +9,14 @@ const Navbar = () => {
     <div className={styles.menu}>
       <ul className={styles["menu__list"]}>
         <li className={styles["menu__item"]}>
-          <a className={styles["menu__link"]} href="#">
+          <Link to='/add-contact' className={styles["menu__link"]} >
             افزودن
-          </a>
+          </Link>
         </li>
         <li className={styles["menu__item"]}>
-          <a className={styles["menu__link"]} href="#">
+          <Link to='/' className={styles["menu__link"]} >
             لیست مخاطبین  
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
