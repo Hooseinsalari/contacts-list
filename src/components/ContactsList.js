@@ -1,14 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
+// component
+import Edit from "./Edit";
 
 // style
 import styles from "./ContactsList.module.css";
 
 // icons
 import trash from "../svg/trash-can-solid.svg";
-import edit from "../svg/pen-to-square-solid.svg";
+import editIcon from "../svg/pen-to-square-solid.svg";
 
-const ContactsList = ({ contacts, deleteHandler }) => {
+const ContactsList = ({
+  addContactHandler,
+  contacts,
+  deleteHandler,
+  onUpdateContact,
+}) => {
+  const [edit, setEdit] = useState({
+    id: null,
+    name: "",
+    number: "",
+    email: "",
+  });
+
+  // state for show edit modal
+  const [isShow, setIsShow] = useState(false);
+
+  const editHandler = (contact) => {
+    setEdit(contact);
+    setIsShow((prevState) => !prevState);
+  };
+
+  const submitHandler = (newContact) => {
+    onUpdateContact(edit.id, newContact);
+    setEdit({
+      id: null,
+      name: "",
+      number: "",
+      email: "",
+    });
+  };
+
   return (
     <div className={styles.contList}>
       {contacts.length ? (
@@ -32,19 +65,29 @@ const ContactsList = ({ contacts, deleteHandler }) => {
               </button>
               <button
                 className={styles["contList__edit-btn"]}
-                onClick={() => deleteHandler(contact.id)}
+                onClick={() => editHandler(contact)}
               >
-                <img src={edit} alt="edit" />
+                <img src={editIcon} alt="edit" />
               </button>
             </div>
           </div>
         ))
       ) : (
-        <div className={styles['contList__alert']}>
+        <div className={styles["contList__alert"]}>
           <h2>لیستت خالیه!</h2>
           <Link to="/add-contact">اضافه کردن مخاطب</Link>
         </div>
       )}
+
+      {edit.id ? (
+        <Edit
+          edit={edit}
+          setEdit={setEdit}
+          addContactHandler={submitHandler}
+          isShow={isShow}
+          setIsShow={setIsShow}
+        />
+      ) : null}
     </div>
   );
 };
