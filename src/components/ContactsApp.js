@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
+
+// components
 import AddContact from './AddContact';
 import ContactsList from './ContactsList';
+
+// toastify
+import { notify } from './shared/toastify';
 
 const ContactsApp = () => {
 
@@ -14,6 +19,7 @@ const ContactsApp = () => {
 
     // delete a contact
     const deleteHandler = (id) => {
+        notify("delete", 'با موفقیت حذف شد.')
         const filteredContacts = contacts.filter((contact) => contact.id !== id)
         setContacts(filteredContacts)
     }

@@ -3,6 +3,9 @@ import React, { useState } from "react";
 // styles
 import styles from "./AddContact.module.css";
 
+// toastify
+import { notify } from "./shared/toastify";
+
 const AddContact = ({ addContactHandler }) => {
   const [contact, setContact] = useState({
     name: "",
@@ -18,9 +21,11 @@ const AddContact = ({ addContactHandler }) => {
     e.preventDefault();
 
     if(!contact.name) {
-      alert("اسم رو وارد نکردی!!!")
+      // alert("اسم رو وارد نکردی!!!")
+      notify("error", 'هنوز اسم رو وارد نکردی!!!')
       return
     }
+    notify("success", 'با موفقیت اضافه شد.')
 
     addContactHandler(contact)
 

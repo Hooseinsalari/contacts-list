@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // style
 import styles from "./ContactsList.module.css";
@@ -6,7 +7,6 @@ import styles from "./ContactsList.module.css";
 // icons
 import trash from "../svg/trash-can-solid.svg";
 import edit from "../svg/pen-to-square-solid.svg";
-import { Link } from "react-router-dom";
 
 const ContactsList = ({ contacts, deleteHandler }) => {
   return (
