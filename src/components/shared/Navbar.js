@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 // style
 import styles from "./Navbar.module.css";
@@ -9,14 +9,14 @@ const Navbar = () => {
     <div className={styles.menu}>
       <ul className={styles["menu__list"]}>
         <li className={styles["menu__item"]}>
-          <Link to='/add-contact' className={styles["menu__link"]} >
+          <NavLink to='/add-contact' className={({isActive}) => isActive ? styles["menu__link-active"] : styles["menu__link"]} >
             افزودن
-          </Link>
+          </NavLink>
         </li>
         <li className={styles["menu__item"]}>
-          <Link to='/' className={styles["menu__link"]} >
+          <NavLink to='/' className={({isActive}) => isActive ? styles["menu__link-active"] : styles["menu__link"]} >
             لیست مخاطبین  
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </div>

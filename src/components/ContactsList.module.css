@@ -72,6 +72,10 @@
     text-decoration: none;
 }
 
+.contList__alert a:active {
+    color: #002029;
+}
+
 /* responsive */
 @media (max-width:674px) {
     .contList__item {
